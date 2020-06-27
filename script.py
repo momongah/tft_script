@@ -2,11 +2,11 @@ from PIL import Image
 import numpy as np
 import os, os.path
 
-path = './test'
+path = './traits'
 styles = [
 	{
 	"style": 1,  # bronze
-	"rgb": (143, 102, 64)
+	"rgb": (167, 111, 76)
 	},
 	{
 	"style": 2,  # silver
@@ -14,11 +14,11 @@ styles = [
 	},
     {
 	"style": 3,  # gold
-	"rgb": (175, 132, 41)
+	"rgb": (228, 193, 90)
 	},
 	{
 	"style": 4,  # chromatic
-	"rgb": (255, 255, 255)
+	"rgb": (250, 250, 250)
     }
 ]
 
@@ -36,7 +36,7 @@ for style in styles:
 		im = im.convert('RGBA')
 		
 		data = np.array(im)
-		r, g, b, a = data.T
+		r, g, b, _ = data.T
 
 		grey_areas = (r == 146) & (g == 146) & (b == 146)
 		data[..., :-1][grey_areas.T] = rgb  
